@@ -1,34 +1,27 @@
 package com.bridgelabz;
 
+import java.util.Scanner;
+
 public class AddressBook {
-    String firstName;
-    String lastName;
-    String address;
-    String city;
-    String state;
-    int zipCode;
-    String phoneNumber;
-    String email;
-
-    public AddressBook(String firstName, String lastName, String address, String city, String state, int zipCode, String phoneNumber, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.city = city;
-        this.state = state;
-        this.zipCode = zipCode;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
+    public static ContactPerson getContact(){
+        Scanner inputContact=new Scanner(System.in);
+        System.out.println("Enter the details of contact person");
+        System.out.println("Enter first name:");
+        String firstName=inputContact.nextLine();
+        System.out.println("Enter last name:");
+        String lastName=inputContact.nextLine();
+        System.out.println("Enter address:");
+        String address=inputContact.nextLine();
+        System.out.println("Enter city:");
+        String city=inputContact.nextLine();
+        System.out.println("Enter state:");
+        String state=inputContact.nextLine();
+        System.out.println("Enter zipcode:");
+        String zipCode=inputContact.nextLine();
+        System.out.println("Enter phone number:");
+        String phoneNumber=inputContact.nextLine();
+        System.out.println("Enter email:");
+        String email=inputContact.nextLine();
+        return new ContactPerson(firstName,lastName,address,city,state,zipCode,phoneNumber,email);
     }
-
-    @Override
-    public String toString() {
-        return "First Name-> " +firstName + "\nLast Name-> " + lastName + "\nAddress-> " + address + "\nCity-> " + city + "\nState-> " + state + "\nZipcode-> " + zipCode + "\nPhone Number-> " + phoneNumber + "\nemail-> " + email;
-    }
-
-    public static void main(String[] args) {
-        AddressBook person1=new AddressBook("Manoj","kumar","Rajiv Colony","Safidon","Haryana",126112,"9992555643","bhardwajmanoj555@gmail.com");
-        System.out.println(person1);
-    }
-
 }
