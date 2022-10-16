@@ -23,7 +23,7 @@ public class AddressBook {
 
     @Override
     public String toString() {
-        return firstName + " " + lastName + " " + address + " " + city + " " + state + " " + zipCode + " " + phoneNumber + " " + email;
+        return "First Name-> " +firstName + "\nLast Name-> " + lastName + "\nAddress-> " + address + "\nCity-> " + city + "\nState-> " + state + "\nZipcode-> " + zipCode + "\nPhone Number-> " + phoneNumber + "\nemail-> " + email;
     }
 
     public static void main(String[] args) {
