@@ -3,7 +3,10 @@ package com.bridgelabz;
 public class AddressBookMain {
     public static void main(String[] args) {
         System.out.println("Welcome to Address Book program");
-        ContactPerson person1=AddressBook.getContact();
-        System.out.println(person1);
+        AddressBook addressBook1=new AddressBook();
+        addressBook1.getContact();
+        addressBook1.getContact();
+        System.out.println(addressBook1);
+
     }
 }

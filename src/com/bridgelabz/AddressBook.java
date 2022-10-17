@@ -1,27 +1,37 @@
 package com.bridgelabz;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class AddressBook {
-    public static ContactPerson getContact(){
+    List<Contact> contactList =new ArrayList<>();
+
+    public void getContact(){
         Scanner inputContact=new Scanner(System.in);
         System.out.println("Enter the details of contact person");
-        System.out.println("Enter first name:");
+        System.out.print("Enter first name:");
         String firstName=inputContact.nextLine();
-        System.out.println("Enter last name:");
+        System.out.print("Enter last name:");
         String lastName=inputContact.nextLine();
-        System.out.println("Enter address:");
+        System.out.print("Enter address:");
         String address=inputContact.nextLine();
-        System.out.println("Enter city:");
+        System.out.print("Enter city:");
         String city=inputContact.nextLine();
-        System.out.println("Enter state:");
+        System.out.print("Enter state:");
         String state=inputContact.nextLine();
-        System.out.println("Enter zipcode:");
+        System.out.print("Enter zipcode:");
         String zipCode=inputContact.nextLine();
-        System.out.println("Enter phone number:");
+        System.out.print("Enter phone number:");
         String phoneNumber=inputContact.nextLine();
-        System.out.println("Enter email:");
+        System.out.print("Enter email:");
         String email=inputContact.nextLine();
-        return new ContactPerson(firstName,lastName,address,city,state,zipCode,phoneNumber,email);
+        Contact contact =new Contact(firstName,lastName,address,city,state,zipCode,phoneNumber,email);
+        contactList.add(contact);
+    }
+
+    @Override
+    public String toString() {
+        return "contactList= " + contactList;
     }
 }

@@ -1,19 +1,17 @@
 package com.bridgelabz;
 
-import java.util.Scanner;
+public class Contact {
+    private String firstName;
+    private String lastName;
+    private String address;
+    private String city;
+    private String state;
+    private String zipCode;
+    private String phoneNumber;
+    private String email;
 
-public class ContactPerson {
-    String firstName;
-    String lastName;
-    String address;
-    String city;
-    String state;
-    String zipCode;
-    String phoneNumber;
-    String email;
-
-    public ContactPerson(String firstName, String lastName, String address, String city,
-                         String state, String zipCode, String phoneNumber,String email) {
+    public Contact(String firstName, String lastName, String address, String city,
+                   String state, String zipCode, String phoneNumber, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
