@@ -32,48 +32,33 @@ public class AddressBook {
         contactList.add(contact);
         System.out.println();
         System.out.println("Contact added");
-        counter++;
     }
 
     public void editContact() {
-        if (counter > 0) {
-            System.out.println("Enter contact's First Name you want to edit: ");
-            String searchName = inputContact.next();
-            indexOfContact = 0;
-            boolean isFoundContact = false;
-
-            for (int i = 0; i < contactList.size(); i++) {
-                if (contactList.get(i).getFirstName().equals(searchName)) {
-                    isFoundContact = true;
-                    indexOfContact = i;
-                    break;
-                }
-            }
-            if (isFoundContact == true) {
-
-                System.out.println("Enter new first name:");
-                contactList.get(indexOfContact).setFirstName(inputContact.nextLine());
+        System.out.println("Enter contact's First Name you want to edit: ");
+        String searchName = inputContact.next();
+        for (Contact contact:contactList) {
+            if (contact.getFirstName().equals(searchName)) {
+                System.out.print("Enter updated name:");
+                contact.setFirstName(inputContact.next());
                 System.out.print("Enter new last Name: ");
-                contactList.get(indexOfContact).setLastName(inputContact.nextLine());
+                contact.setLastName(inputContact.next());
                 System.out.print("Enter new address: ");
-                contactList.get(indexOfContact).setAddress(inputContact.nextLine());
+                contact.setAddress(inputContact.next());
                 System.out.print("Enter new city: ");
-                contactList.get(indexOfContact).setCity(inputContact.nextLine());
+                contact.setCity(inputContact.next());
                 System.out.print("Enter new state:");
-                contactList.get(indexOfContact).setState(inputContact.nextLine());
+                contact.setState(inputContact.next());
                 System.out.print("Enter new zip: ");
-                contactList.get(indexOfContact).setZipCode(inputContact.nextLine());
+                contact.setZipCode(inputContact.next());
                 System.out.print("Enter phone number: ");
-                contactList.get(indexOfContact).setPhoneNumber(inputContact.nextLine());
+                contact.setPhoneNumber(inputContact.next());
                 System.out.print("Enter new email");
-                contactList.get(indexOfContact).setEmail(inputContact.nextLine());
+                contact.setEmail(inputContact.next());
                 System.out.println();
                 System.out.println("Edit completed");
-
-            } else {
-                System.out.println("No contact found with this Name");
+                }
             }
-        }
     }
 
     public String toString () {
