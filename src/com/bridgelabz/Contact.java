@@ -57,14 +57,18 @@ public class Contact {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    @Override
     public String toString() {
-        return "First Name-> " +firstName +
-                "\nLast Name-> " + lastName +
-                "\nAddress-> " + address +
-                "\nCity-> " + city +
-                "\nState-> " + state +
-                "\nZipcode-> " + zipCode +
-                "\nPhone Number-> " + phoneNumber +
-                "\nemail->"+email; //
+        return "\nContact{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }

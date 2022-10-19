@@ -10,27 +10,32 @@ public class AddressBook {
     Scanner inputContact = new Scanner(System.in);
     private int indexOfContact;
     public void getContact() {
-        System.out.println("Enter the details of contact =>");
-        Contact contact = new Contact();
-        System.out.print("Enter first name:");
-        contact.setFirstName(inputContact.next());
-        System.out.print("Enter last name:");
-        contact.setLastName(inputContact.next());
-        System.out.print("Enter address:");
-        contact.setAddress(inputContact.next());
-        System.out.print("Enter city:");
-        contact.setCity(inputContact.next());
-        System.out.print("Enter state:");
-        contact.setState(inputContact.next());
-        System.out.print("Enter zipcode:");
-        contact.setZipCode(inputContact.next());
-        System.out.print("Enter phone number:");
-        contact.setPhoneNumber(inputContact.next());
-        System.out.print("Enter email:");
-        contact.setEmail(inputContact.next());
-        contactList.add(contact);
-        System.out.println();
-        System.out.println("Contact added");
+        System.out.print("Enter the number of contact you want to save:");
+        int numberOfContact=inputContact.nextInt();
+        for(int i=1;i<=numberOfContact;i++){
+            System.out.println("Enter the details of contact =>");
+            Contact contact = new Contact();
+            System.out.print("Enter first name:");
+            contact.setFirstName(inputContact.next());
+            System.out.print("Enter last name:");
+            contact.setLastName(inputContact.next());
+            System.out.print("Enter address:");
+            contact.setAddress(inputContact.next());
+            System.out.print("Enter city:");
+            contact.setCity(inputContact.next());
+            System.out.print("Enter state:");
+            contact.setState(inputContact.next());
+            System.out.print("Enter zipcode:");
+            contact.setZipCode(inputContact.next());
+            System.out.print("Enter phone number:");
+            contact.setPhoneNumber(inputContact.next());
+            System.out.print("Enter email:");
+            contact.setEmail(inputContact.next());
+            contactList.add(contact);
+            System.out.println();
+            System.out.println("Contact added");
+        }
+
     }
     public void editContact() {
         System.out.println("Enter contact's First Name you want to edit: ");
