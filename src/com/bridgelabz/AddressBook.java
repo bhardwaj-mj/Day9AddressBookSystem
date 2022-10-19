@@ -1,12 +1,10 @@
 package com.bridgelabz;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class AddressBook {
     List<Contact> contactList = new ArrayList<>();
+    HashMap<String, AddressBook> addressBooks = new HashMap<>();
     Scanner inputContact = new Scanner(System.in);
     private int indexOfContact;
     public void getContact() {
