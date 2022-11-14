@@ -7,6 +7,7 @@ public class AddressBook {
     static List<Contact> contactList = new ArrayList<>();
     HashMap<String, AddressBook> addressBooks = new HashMap<>();
     Scanner inputContact = new Scanner(System.in);
+    HashMap<String,Contact> contactHashMap = new HashMap<>();
     private int indexOfContact;
     public void addContact() {
             System.out.println("Enter the details of contact =>");
@@ -105,18 +106,33 @@ public class AddressBook {
     }
 
     public void viewPersonByCity(String cityName) {
-        Predicate<Contact> contactPredicate = t->t.getCity().equals(cityName);
-        if (contactList.stream().filter(contactPredicate).equals(true)){
-            contactList.stream().filter(contactPredicate).forEach(x-> System.out.println(x));
-        }else
-            System.out.println("Not exists.");
+        for (Contact c : contactList){
+            if (c.getState().equals(cityName)){
+                contactHashMap.put(cityName,c);
+            }
+        }
+        Predicate<Contact> contactPredicate = t -> t.getCity().equals(cityName);
+        contactList.stream().filter(contactPredicate).forEach(x -> System.out.println(x));
+        System.out.println(contactHashMap.keySet());;
 
     }
     public void viewPersonByState(String stateName){
-
         Predicate<Contact> contactPredicate = c->c.getState().equals(stateName);
+        contactList.stream().filter(contactPredicate).forEach(x->contactHashMap.put(stateName,x));
         contactList.stream().filter(contactPredicate).forEach(x-> System.out.println(x));
+        for (Contact c : contactList){
+            if (c.getState().equals(stateName)){
+                contactHashMap.put(stateName,c);
+            }
+        }
+        System.out.println(contactHashMap.keySet());;
+
+
     }
+    void printHashMap(){
+        System.out.println(contactHashMap.keySet());;
+    }
+
     public String toString () {
         return "contactList= " + contactList;
     }

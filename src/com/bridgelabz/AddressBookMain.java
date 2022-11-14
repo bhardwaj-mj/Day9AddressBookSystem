@@ -9,7 +9,7 @@ public class AddressBookMain {
         System.out.println("Welcome to Address Book program");
         Scanner scanner = new Scanner(System.in);
         HashMap<String, AddressBook> addressBookHashMap = new HashMap<>();
-        HashMap<String,Contact> contactHashMap = new HashMap<>();
+
         AddressBook addressBook = new AddressBook();
         int ch;
         do {
@@ -48,6 +48,8 @@ public class AddressBookMain {
                         String stateName = scanner.next();
                         addressBook = addressBookHashMap.get(addBookName1);
                         addressBook.viewPersonByCity(stateName);
+                        addressBook.printHashMap();
+
                     }else {
                         System.out.println("AddressBook not found.");
                     }
@@ -57,11 +59,14 @@ public class AddressBookMain {
                     if (addressBookHashMap.containsKey(searchName1)){
                         addressBook = addressBookHashMap.get(searchName1);
                         addressBook.addContact();
+
                     }
                     else {
                         System.out.println("AddressBook not exists.");
                     }
                     break;
+                case 6:
+
             }
         }while (ch != 0) ;
     }
