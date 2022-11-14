@@ -9,10 +9,10 @@ public class AddressBookMain {
         AddressBook book1 = new AddressBook();
         AddressBook book2 = new AddressBook();
         AddressBook book3 = new AddressBook();
-        addressBook.addressBooks.put("AddressBook",addressBook);
-        addressBook.addressBooks.put("AddressBook1", book1);
-        addressBook.addressBooks.put("AddressBook2", book2);
-        addressBook.addressBooks.put("AddressBook3", book3);
+        addressBook.addressBooks.put("AddressBook1",addressBook);
+        addressBook.addressBooks.put("AddressBook2", book1);
+        addressBook.addressBooks.put("AddressBook3", book2);
+        addressBook.addressBooks.put("AddressBook4", book3);
         do{
             Scanner inputChoice = new Scanner(System.in);
             System.out.println("Enter your choice\n1: Add Contact\t2: Edit Contact\n3: Display Contact\t4: Delete Contact");
@@ -47,5 +47,6 @@ public class AddressBookMain {
         System.out.println("Welcome to Address Book program");
         AddressBookMain object=new AddressBookMain();
         object.openContact();
+
     }
 }
