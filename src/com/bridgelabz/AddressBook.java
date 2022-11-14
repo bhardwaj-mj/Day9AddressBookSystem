@@ -3,38 +3,47 @@ package com.bridgelabz;
 import java.util.*;
 
 public class AddressBook {
-    List<Contact> contactList = new ArrayList<>();
+    static List<Contact> contactList = new ArrayList<>();
     HashMap<String, AddressBook> addressBooks = new HashMap<>();
     Scanner inputContact = new Scanner(System.in);
     private int indexOfContact;
-    public void getContact() {
-        System.out.print("Enter the number of contact you want to save:");
-        int numberOfContact=inputContact.nextInt();
-        for(int i=1;i<=numberOfContact;i++){
+    public void addContact() {
             System.out.println("Enter the details of contact =>");
             Contact contact = new Contact();
-            System.out.print("Enter first name:");
+            System.out.println("Enter person first name: ");
             contact.setFirstName(inputContact.next());
-            System.out.print("Enter last name:");
-            contact.setLastName(inputContact.next());
-            System.out.print("Enter address:");
-            contact.setAddress(inputContact.next());
-            System.out.print("Enter city:");
-            contact.setCity(inputContact.next());
-            System.out.print("Enter state:");
-            contact.setState(inputContact.next());
-            System.out.print("Enter zipcode:");
-            contact.setZipCode(inputContact.next());
-            System.out.print("Enter phone number:");
-            contact.setPhoneNumber(inputContact.next());
-            System.out.print("Enter email:");
-            contact.setEmail(inputContact.next());
-            contactList.add(contact);
-            System.out.println();
-            System.out.println("Contact added");
+            String result = contact.getFirstName();
+            boolean flag = checkDuplicate(result);
+            if (flag) {
+                System.out.println("Person is already exist");
+            } else {
+                System.out.print("Enter first name:");
+                contact.setFirstName(inputContact.next());
+                System.out.print("Enter last name:");
+                contact.setLastName(inputContact.next());
+                System.out.print("Enter address:");
+                contact.setAddress(inputContact.next());
+                System.out.print("Enter city:");
+                contact.setCity(inputContact.next());
+                System.out.print("Enter state:");
+                contact.setState(inputContact.next());
+                System.out.print("Enter zipcode:");
+                contact.setZipCode(inputContact.next());
+                System.out.print("Enter phone number:");
+                contact.setPhoneNumber(inputContact.next());
+                System.out.print("Enter email:");
+                contact.setEmail(inputContact.next());
+                contactList.add(contact);
+                System.out.println();
+                System.out.println("Contact added");
+            }
         }
-
+    public void  displayContact() {
+        for (Contact contact:contactList){
+            System.out.println(contact);
+        }
     }
+
     public void editContact() {
         System.out.println("Enter contact's First Name you want to edit: ");
         String searchName = inputContact.next();
@@ -77,6 +86,16 @@ public class AddressBook {
                 System.out.println("Contact not found with this name");
             }
         }
+    }
+    private static boolean checkDuplicate(String firstname) {
+        int flag = 0;
+        for (Contact contact : contactList) {
+            if (contact.getFirstName().equals(firstname)) {
+                flag = 1;
+                break;
+            }
+        }
+        return flag == 1;
     }
     public String toString () {
         return "contactList= " + contactList;
