@@ -77,18 +77,17 @@ public class AddressBookMain {
                         addressBook = addressBookHashMap.get(addBookName1);
                         long count = addressBook.getCount();
                         System.out.println(count);
-                    }
-                    else {
+                    } else {
                         System.out.println("AddressBook not exists.");
                     }
                     break;
                 case 7:
                     System.out.println("Enter AddressBook name : ");
                     addBookName1 = scanner.next();
-                    if (addressBookHashMap.containsKey(addBookName1)){
+                    if (addressBookHashMap.containsKey(addBookName1)) {
                         addressBook = addressBookHashMap.get(addBookName1);
                         addressBook.sortContact();
-                    }else {
+                    } else {
                         System.out.println("AddressBook not found.");
                     }
                     break;
