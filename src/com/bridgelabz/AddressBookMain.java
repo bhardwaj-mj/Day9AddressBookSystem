@@ -1,7 +1,14 @@
 package com.bridgelabz;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class AddressBookMain {
 
@@ -19,7 +26,8 @@ public class AddressBookMain {
                     "4.Search by state\n " +
                     "5.Add contact in AddressBook\t" +
                     "6.Count Contacts\t" +
-                    "7.Sort Entries in AddressBook alphabetically ");
+                    "7.Sort Entries in AddressBook alphabetically\t" +
+                    "8.Display Contacts ");
             ch = scanner.nextInt();
             switch (ch) {
                 case 1:
@@ -91,9 +99,32 @@ public class AddressBookMain {
                         System.out.println("AddressBook not found.");
                     }
                     break;
+                case 8:
+                    System.out.println("Enter AddressBook name : ");
+                    addBookName1 = scanner.next();
+                    if (addressBookHashMap.containsKey(addBookName1)) {
+                        addressBook = addressBookHashMap.get(addBookName1);
+                        addressBook.displayContact();
+
+                    }
+                    break;
+
 
             }
         } while (ch != 0);
+        Path path = Paths.get("E:\\BridgeLabz\\RFP\\Day9AddressBookSystem\\src\\com\\bridgelabz\\AddressBookIO.txt");
+        try {
+            Files.deleteIfExists(path);
+            Files.write(path,
+                    addressBookHashMap.keySet().stream().map(key -> addressBookHashMap.get(key).toString()).collect(Collectors.toList()),
+                    StandardOpenOption.CREATE);
+
+            List<String> readAllLines = Files.readAllLines(path);
+            readAllLines.stream().forEach(line -> System.out.println(line));
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 
