@@ -108,4 +108,7 @@ public class Contact {
     public int hashCode() {
         return Objects.hash(firstName);
     }
+    String[] getContactStrings() {
+        return new String[] {firstName, lastName, email, address, city, state, zipCode + "", phoneNumber + ""};
+    }
 }
