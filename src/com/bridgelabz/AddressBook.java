@@ -163,6 +163,11 @@ public class AddressBook {
         return count;
     }
 
+    void sortContact() {
+        Comparator<Contact> contactComparator = (a, b) -> a.compareTo(b);
+        contactList.stream().sorted(contactComparator).forEach(x -> System.out.println(x));
+    }
+
     public String toString() {
         return "contactList= " + contactList;
     }
