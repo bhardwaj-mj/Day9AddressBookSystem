@@ -100,8 +100,8 @@ public class Contact {
 
     public int compareTo(Object o) {
         Contact contact = (Contact) o;
-        int compareResult = this.state.compareTo(contact.state);
-        return state.compareTo(contact.state);
+        int compareResult = this.zipCode.compareTo(contact.zipCode);
+        return zipCode.compareTo(contact.zipCode);
     }
 
     @Override
